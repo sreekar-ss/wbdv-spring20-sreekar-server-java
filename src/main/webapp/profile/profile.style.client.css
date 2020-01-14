@@ -1,0 +1,23 @@
+
+
+h1{
+    font-family:"Calibri";
+    color: #3b5998;
+
+    width: 80%;
+    text-align: center;
+    margin-left: 2cm;
+    text-emphasis: none;
+    padding-top: 3cm;
+    padding-bottom: 1cm;
+}
+
+.wbdv-field{
+
+    margin: 0.3cm;
+}
+
+.wbdv-button{
+    margin: 0.3cm;
+}
+
