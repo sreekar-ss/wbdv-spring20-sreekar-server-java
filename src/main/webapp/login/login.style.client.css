@@ -19,23 +19,17 @@ h1{
 
 .wbdv-button{
 
+    text-align: center;
     margin-top: 0.5cm;
     width: 100%;
+    padding: 1cm;
 
 }
-
-
 .wbdv-link{
+
+    margin-bottom: 1cm;
     white-space: nowrap;
+    flex-wrap: wrap;
 
 }
-.wbdv-forgot-password{
-    margin: 2cm;
-}
 
-.wbdv-register{
-
-    float: right;
-    margin-right: 2cm;
-
-}
