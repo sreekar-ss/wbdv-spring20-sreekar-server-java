@@ -1,0 +1,36 @@
+
+
+
+h1{
+    font-family:"Tahoma";
+    color: #3b5998;
+
+    width: 80%;
+    text-align: center;
+    margin-left: 2cm;
+    text-emphasis: none;
+    padding-top: 3cm;
+    padding-bottom: 1cm;
+}
+
+.wbdv-field{
+
+    text-align: center;
+    margin-bottom: 0.5cm;
+    float: right;
+}
+
+.wbdv-link{
+
+    text-align: center;
+    margin-bottom: 0.5cm;
+
+    float: right;
+    white-space: nowrap;
+}
+
+.wbdv-button{
+    width:100%;
+    float-defer-column: last;
+    white-space: nowrap;
+}
