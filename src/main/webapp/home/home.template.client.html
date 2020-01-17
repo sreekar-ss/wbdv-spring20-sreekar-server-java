@@ -19,16 +19,16 @@
         <nav class="navbar navbar-dark bg-primary">
 
             <button class="navbar-toggler bg-dark wbdv-field wbdv-hamburger" type="button" >
-                <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon wbdv-field wbdv-hamburger"></span>
             </button>
 
-            <span class="navbar-text col-sm-2">Course Manager</span>
+            <span class="navbar-text col-sm-2 wbdv-label wbdv-course-manager">Course Manager</span>
 
-            <input class="form-control col-sm-6" style="background: #e3f2fd" type="text" placeholder="Add Course Title">
+            <input class="form-control col-sm-6 wbdv-field wbdv-new-course" style="background: #e3f2fd" type="text" placeholder="Add Course Title">
 
-
-                <i class="fas fa-plus-circle col-sm-3 fa-3x"></i>
-
+            <a class="wbdv-button wbdv-add-course col-sm-3">
+                <i class="fas fa-plus-circle  fa-3x wbdv-button wbdv-add-course"></i>
+            </a>
 
 
 
@@ -37,16 +37,22 @@
 
         <nav class="navbar navbar-light bg-light">
 
-            <span class="navbar-text col-sm-2">Title</span>
+            <span class="navbar-text col-sm-2 wbdv-header wbdv-title">Title</span>
             <span class="navbar-text col-sm-4"></span>
-            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="btn btn-secondary dropdown-toggle wbdv-header wbdv-owner" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Owned by
             </a>
-            <span class="navbar-text col-sm-3">Last Opened</span>
+            <span class="navbar-text col-sm-3 wbdv-header wbdv-last-modified">Last Opened</span>
 
-            <i class="fas fa-th"></i>
+            <a class="wbdv-button wbdv-grid-layout">
+                <i class="fas fa-th"></i>
+            </a>
+
+            <!add sort header button here>
 
         </nav>
+
+
 
 
         <div class="container">
@@ -54,45 +60,48 @@
 
 
                 <div id="list-example" class="list-group ">
-                    <a class="list-group-item list-group-item-action shadow p-3  bg-white rounded" href="#list-item-1">
+                    <a class="list-group-item list-group-item-action shadow p-3  bg-white rounded wbdv-row wbdv-course" href="#list-item-1">
                         <img src="">
-                        <i class="fas fa-book"></i>
+                        <i class="fas fa-book wbdv-row wbdv-icon"></i>
                         CS5610 Web Development
                         <button type="button" class="close" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </a>
-                    <a class="list-group-item list-group-item-action shadow p-3  bg-white rounded" href="#list-item-2">
-                        <i class="fas fa-book"></i>
+                    <a class="list-group-item list-group-item-action shadow p-3  bg-white rounded wbdv-row wbdv-course" href="#list-item-2">
+                        <i class="fas fa-book wbdv-row wbdv-icon"></i>
                         CS5610 Web Development
                         <button type="button" class="close" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </a>
-                    <a class="list-group-item list-group-item-action shadow p-3  bg-white rounded" href="#list-item-3">
-                        <i class="fas fa-book"></i>
+                    <a class="list-group-item list-group-item-action shadow p-3  bg-white rounded wbdv-row wbdv-course" href="#list-item-3">
+                        <i class="fas fa-book wbdv-row wbdv-icon"></i>
                         CS5610 Web Development
                         <button type="button" class="close" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
 
                     </a>
-                    <a class="list-group-item list-group-item-action shadow p-3  bg-white rounded" href="#list-item-4">
+                    <a class="list-group-item list-group-item-action shadow p-3  bg-white rounded wbdv-row wbdv-course" href="#list-item-4">
 
 
                         <div class="container">
                             <div class="row">
                                 <div class="col-sm">
-                                    <i class="fas fa-book"></i>
+                                    <i class="fas fa-book wbdv-row wbdv-icon"></i>
+                                </div>
+                                <div class="col-sm-4">
+                                    <span class="col wbdv-row wbdv-title">CS5610 Web Development</span>
                                 </div>
                                 <div class="col-sm">
-                                    <span class="col">CS5610 Web Development</span>
+                                    <span class="col wbdv-row wbdv-owner">me</span>
                                 </div>
                                 <div class="col-sm">
-                                    <span class="col">me</span>
+                                    <span class="col wbdv-row wbdv-modified-date">6:52 PM</span>
                                 </div>
                                 <div class="col-sm">
-                                    <button type="button" class="close" aria-label="Close">
+                                    <button type="button" class="close wbdv-row wbdv-button wbdv-delete" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
