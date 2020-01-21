@@ -3,52 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <title>WhiteBoard</title>
-    <link href="home.style.client.css" rel="stylesheet" />
+    <link href="home.style.client.css" rel="stylesheet">
 
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
 
-    <script src="https://kit.fontawesome.com/ae9e5ac5b6.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/ae9e5ac5b6.js" crossorigin="anonymous"></script>  <!-- font Awesome icon script-->
+
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
 </head>
 <body>
 
 <div>
 
-    <div class="pos-f-t">
 
-        <nav class="navbar navbar-dark bg-primary">
 
-            <button class="navbar-toggler bg-dark wbdv-field wbdv-hamburger" type="button" >
+        <nav class="navbar navbar-dark bg-primary wbdv-course-manager-header" style="background: linear-gradient(110deg, #fdcd3b 60%, #ffed4b 60%); white-space: nowrap">
+
+            <button class="navbar-toggler bg-dark wbdv-field wbdv-hamburger" type="button" style="color: azure">
                 <span class="navbar-toggler-icon wbdv-field wbdv-hamburger"></span>
             </button>
 
-            <span class="navbar-text col-sm-2 wbdv-label wbdv-course-manager">Course Manager</span>
+            <span class="navbar-text col-md-2 d-none d-lg-block">
+                    <h4 class="wbdv-label wbdv-course-manager">Course Manager</h4>
+            </span>
 
-            <input class="form-control col-sm-6 wbdv-field wbdv-new-course" style="background: #e3f2fd" type="text" placeholder="Add Course Title">
+            <input class="form-control col-md-6 wbdv-field wbdv-new-course col-6" style="background: #e3f2fd" type="text" placeholder="Add Course Title">
 
-            <a class="wbdv-button wbdv-add-course col-sm-3">
+            <a class="wbdv-button wbdv-add-course col-md-3 wbdv-button wbdv-add-course col-3" href="/course-editor/course-editor.template.client.html">
                 <i class="fas fa-plus-circle  fa-3x wbdv-button wbdv-add-course"></i>
             </a>
-
+                    <!-- WHICH CLASS SHOULD GET THE TEST CLASSES?-->
 
 
 
         </nav>
 
+
         <nav class="navbar navbar-light bg-light">
 
-            <span class="navbar-text col-sm-2 wbdv-header wbdv-title">Title</span>
-            <span class="navbar-text col-sm-4"></span>
-            <a class="btn btn-secondary dropdown-toggle wbdv-header wbdv-owner" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Owned by
-            </a>
-            <span class="navbar-text col-sm-3 wbdv-header wbdv-last-modified">Last Opened</span>
 
-            <a class="wbdv-button wbdv-grid-layout">
-                <i class="fas fa-th"></i>
-            </a>
+            <div class="col">
 
-            <!add sort header button here>
+                    <span class="navbar-text col-sm d-block d-lg-none">
+                        <h5 class="wbdv-last-modified">Today</h5>
+                    </span>
+
+                    <span class="navbar-text col-sm offset-sm-7 wbdv-header wbdv-title d-none d-lg-block">
+                       <h5 class="wbdv-header wbdv-title">Title</h5>
+                    </span>
+
+            </div>
+
+            <div class="col" style="white-space: nowrap">
+
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col">
+                            <a class="btn btn-secondary dropdown-toggle wbdv-header wbdv-owner d-none d-lg-block" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Owned by
+                            </a>
+                        </div>
+                        <div class="col">
+                            <h6 class="navbar-text wbdv-header wbdv-last-modified d-none d-lg-block">Last Opened</h6>
+                        </div>
+                        <div class="col">
+                            <a class="wbdv-button wbdv-grid-layout d-none d-lg-block" href="#">
+                                <i class="fas fa-th"></i>
+                            </a>
+                        </div>
+                        <div class="col">
+                            <!-- add sort header button here -->
+                            <a class="wbdv-header wbdv-sort col-lg-1 d-none d-lg-block" href="#">
+                                <i class="fas fa-sort-alpha-up"></i>
+                            </a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+
+
+            </div>
+
+
 
         </nav>
 
@@ -61,88 +107,125 @@
 
                 <div id="list-example" class="list-group ">
                     <a class="list-group-item list-group-item-action shadow p-3  bg-white rounded wbdv-row wbdv-course" href="/course-editor/course-editor.template.client.html">
-                        <img src="">
-                        <i class="fas fa-book wbdv-row wbdv-icon"></i>
-                        CS5610 Web Development
-                        <button type="button" class="close" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </a>
-                    <a class="list-group-item list-group-item-action shadow p-3  bg-white rounded wbdv-row wbdv-course" href="#list-item-2">
-                        <i class="fas fa-book wbdv-row wbdv-icon"></i>
-                        CS5610 Web Development
-                        <button type="button" class="close" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </a>
-                    <a class="list-group-item list-group-item-action shadow p-3  bg-white rounded wbdv-row wbdv-course" href="#list-item-3">
-                        <i class="fas fa-book wbdv-row wbdv-icon"></i>
-                        CS5610 Web Development
-                        <button type="button" class="close" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
 
-                    </a>
-                    <a class="list-group-item list-group-item-action shadow p-3  bg-white rounded wbdv-row wbdv-course" href="#list-item-4">
-
-
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-sm">
-                                    <i class="fas fa-book wbdv-row wbdv-icon"></i>
-                                </div>
-                                <div class="col-sm-4">
-                                    <span class="col wbdv-row wbdv-title">CS5610 Web Development</span>
-                                </div>
-                                <div class="col-sm">
-                                    <span class="col wbdv-row wbdv-owner">me</span>
-                                </div>
-                                <div class="col-sm">
-                                    <span class="col wbdv-row wbdv-modified-date">6:52 PM</span>
-                                </div>
-                                <div class="col-sm">
-                                    <button type="button" class="close wbdv-row wbdv-button wbdv-delete" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
+                        <div class="row container" style="white-space: nowrap">
+                            <div class="col">
+                                <i class="fas fa-book wbdv-row wbdv-icon"></i>
                             </div>
+                            <div class="col col-sm-4">
+                                <span class="col wbdv-row wbdv-title">CS5610 Web Development</span>
+                            </div>
+
+                            <div class="col offset-sm-1">
+                                <span class="wbdv-row wbdv-owner d-none d-lg-block">me</span>
+                            </div>
+
+                            <div class="col">
+                                <span class="wbdv-row wbdv-modified-date d-none d-lg-block">6:52 PM</span>
+                            </div>
+
+                            <div class="col">
+                                <button type="button" class="close wbdv-row wbdv-button wbdv-delete">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+
+                        </div>
+
+                    </a>
+                    <a class="list-group-item list-group-item-action shadow p-3  bg-white rounded wbdv-row wbdv-course" href="/course-editor/course-editor.template.client.html">
+
+                        <div class="row container" style="white-space: nowrap">
+                            <div class="col">
+                                <i class="fas fa-book wbdv-row wbdv-icon"></i>
+                            </div>
+                            <div class="col col-sm-4">
+                                <span class="col wbdv-row wbdv-title">CS5610 Web Development</span>
+                            </div>
+
+                            <div class="col offset-sm-1">
+                                <span class="wbdv-row wbdv-owner d-none d-lg-block">me</span>
+                            </div>
+
+                            <div class="col">
+                                <span class="wbdv-row wbdv-modified-date d-none d-lg-block">6:52 PM</span>
+                            </div>
+
+                            <div class="col">
+                                <button type="button" class="close wbdv-row wbdv-button wbdv-delete">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+
+                        </div>
+
+                    </a>
+                    <a class="list-group-item list-group-item-action shadow p-3  bg-white rounded wbdv-row wbdv-course" href="/course-editor/course-editor.template.client.html">
+
+                        <div class="row container" style="white-space: nowrap">
+                            <div class="col">
+                                <i class="fas fa-book wbdv-row wbdv-icon"></i>
+                            </div>
+                            <div class="col col-sm-4">
+                                <span class="col wbdv-row wbdv-title">CS5610 Web Development</span>
+                            </div>
+
+                            <div class="col offset-sm-1">
+                                <span class="wbdv-row wbdv-owner d-none d-lg-block">me</span>
+                            </div>
+
+                            <div class="col">
+                                <span class="wbdv-row wbdv-modified-date d-none d-lg-block">6:52 PM</span>
+                            </div>
+
+                            <div class="col">
+                                <button type="button" class="close wbdv-row wbdv-button wbdv-delete">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+
+                        </div>
+
+                    </a>
+                    <a class="list-group-item list-group-item-action shadow p-3  bg-white rounded wbdv-row wbdv-course" href="/course-editor/course-editor.template.client.html">
+
+
+                        <div class="row container" style="white-space: nowrap">
+                            <div class="col">
+                                <i class="fas fa-book wbdv-row wbdv-icon"></i>
+                            </div>
+                            <div class="col col-sm-4">
+                                <span class="col wbdv-row wbdv-title">CS5610 Web Development</span>
+                            </div>
+
+                            <div class="col offset-sm-1">
+                                <span class="wbdv-row wbdv-owner d-none d-lg-block">me</span>
+                            </div>
+
+                            <div class="col">
+                                <span class="wbdv-row wbdv-modified-date d-none d-lg-block">6:52 PM</span>
+                            </div>
+
+                            <div class="col">
+                                <button type="button" class="close wbdv-row wbdv-button wbdv-delete">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+
                         </div>
 
                     </a>
                 </div>
 
-            <a class="wbdv-row wbdv-course">
+        </div>
 
-                <div class="card">
-
-
-
-                    <div class="card-body shadow p-3  bg-white rounded">
-                        <i class="fas fa-bars"></i>
-                        CS5610 - Web Development
-                    </div>
-                </div>
-
-
-            </a>
+        <a class="wbdv-button wbdv-add-new-course" href="#">
+              <i class="fas fa-plus fa-3x wbdv-add-course rounded-circle"></i>
+        </a>
 
 
 
         </div>
-
-
-        <i class="fas fa-plus fa-3x"></i>
-
-
-
-        </div>
-
-
-    </div>
-
-
-
-
 
 
 

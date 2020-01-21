@@ -1,7 +1,54 @@
 
 
 
-.wbdv-label{
 
+.wbdv-hamburger{
+
+    color: azure;
+}
+
+.wbdv-course-manager-header{
+
+
+}
+
+.wbdv-course-manager{
+
+    color: white;
+    font-family: Tahoma;
+}
+
+.wbdv-add-course{
+
+    color: crimson;
+
+}
+
+.wbdv-title{
+    font-family: Tahoma;
+
+
+}
+
+
+.wbdv-last-modified{
+
+    margin-left: 1cm;
+}
+
+.wbdv-title-name{
+
+    float: left;
+    align-self: start;
+
+
+}
+
+.wbdv-add-new-course{
+
+
+    float: right;
+    margin-top: 30px;
+    margin-right: 40px;
 
 }
