@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>WhiteBoard</title>
 
-    <link href="home.style.client.css" rel="stylesheet" />
+    <link href="course-editor.style.client.css" rel="stylesheet" />
 
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
 
@@ -17,102 +17,165 @@
             integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    
+
+
+    <!-- Sources used :Bootstrap, FontAwesome -->
 </head>
 <body>
 
 <!bootstrap template for the navigation bar>
 <nav class="navbar navbar-expand-lg navbar-light bg-dark fixed-top shadow">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+
+
+    <button type="button col" class="close wbdv-course-editor wbdv-close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+
+    <a class="navbar-brand col-sm col" href="#">
+        <h3 class="wbdv-course-title">CS5610 WebDev</h3>
+    </a>
+
+    <button class="navbar-toggler col" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <a class="navbar-brand col-sm" href="#">Course Editor</a>
+
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav nav-fill">
-            <a class="nav-item nav-link active col-sm-2" href="#"
-               style="padding-left: 1cm; padding-right: 1cm"
-            >Build<span class="sr-only">(current)</span></a>
-            <a class="nav-item nav-link col-sm-2" href="#">Pages</a>
-            <a class="nav-item nav-link col-sm-2" href="#">Themes</a>
-            <a class="nav-item nav-link disabled col-sm-2" href="#" tabindex="-1" aria-disabled="true">Store</a>
-            <a class="nav-item nav-link col-sm-2" href="#">Apps</a>
-            <a class="nav-item nav-link col-sm-2" href="#">Settings</a>
-        </div>
+
+            <nav class="nav nav-pills nav-fill">
+                <a class="nav-item nav-link" href="#">Build</a>
+                <a class="nav-item nav-link active wbdv-page-tab" href="#">Pages</a>
+                <a class="nav-item nav-link" href="#">Theme</a>
+                <a class="nav-item nav-link" href="#">Store</a>
+                <a class="nav-item nav-link" href="#">Apps</a>
+                <a class="nav-item nav-link" href="#">Settings</a>
+            </nav>
+            <a class="wbdv-new-page-btn" href="#">
+                <i class="fas fa-plus fa-2x wbdv-new-page-btn rounded-circle"></i>
+            </a>
     </div>
 </nav>
 
 
 
-<div class="container-fluid">
+<div class="container-fluid" style="padding-top: 2cm">
 
     <div class="row">
         <div class="col-4 bg-light flex-column nav-pills">
             <h2 id="webdv-module-list">Module List</h2>
 
-            <ul class="list-group">
-                <li class="list-group-item active shadow p-3 mb-3 rounded">Module 1</li>
-                <li class="list-group-item shadow p-3 mb-3 bg-white rounded">Module 2</li>
-                <li class="list-group-item shadow p-3 mb-3 bg-white rounded">Module 3</li>
-            </ul>
+            <div class="list-group wbdv-module-list">
+                <a href="#" class="list-group-item list-group-item-action active shadow p-3 mb-3 rounded wbdv-module-item">
+                    <div class="row">
+                        <div class="col">
+                            <h5 class="wbdv-module-item-title">Module 1</h5>
+                        </div>
+                        <div class="col">
+                            <button type="button" class="close wbdv-module-item-delete-btn">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    </div>
+                </a>
+                <a href="#" class="list-group-item list-group-item-action shadow p-3 mb-3 rounded wbdv-module-item">
+                    <div class="row">
+                        <div class="col">
+                            <h5 class="wbdv-module-item-title">Module 2</h5>
+                        </div>
+                        <div class="col">
+                            <button type="button" class="close wbdv-module-item-delete-btn">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    </div>
+                </a>
+                <a href="#" class="list-group-item list-group-item-action shadow p-3 mb-3 rounded wbdv-module-item">
+                    <div class="row">
+                        <div class="col">
+                            <h5 class="wbdv-module-item-title">Module 3</h5>
+                        </div>
+                        <div class="col">
+                            <button type="button" class="close wbdv-module-item-delete-btn">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    </div>
+                </a>
+                <a href="#" class="list-group-item list-group-item-action shadow p-3 mb-3 rounded wbdv-module-item">
+                    <div class="row">
+                        <div class="col">
+                            <h5 class="wbdv-module-item-title">Module 4</h5>
+                        </div>
+                        <div class="col">
+                            <button type="button" class="close wbdv-module-item-delete-btn">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <a class="wbdv-module-item-add-btn" href="#">
+                <i class="fas fa-plus fa-2x wbdv-module-item-add-btn"></i>
+            </a>
+
         </div>
 
         <div class="col-8">
-            <h2>Lessons</h2>
+            <h2>Topics</h2>
 
-            <ul class="nav nav-pills mb-3" role="tablist">
-                <li class="nav-item">
-                    <a class="nav-link active" href="#nav-Lesson1">Lesson 1</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="#nav-Lesson2">Lesson 2</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="#nav-Lesson3">Lesson 3</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="#nav-Lesson4">Lesson 4</a>
-                </li>
-            </ul>
-
-            <div class="tab-content" id="nav-tabContent">
-                <div class="tab-pane fade show active" id="nav-Lesson1" role="tabpanel" aria-labelledby="nav-home-tab"> THis is the test topic for lesson 1</div>
-                <div class="tab-pane fade" id="nav-Lesson2" role="tabpanel" aria-labelledby="nav-profile-tab">This is</div>
-            </div>
-
-
-            <ul class="nav nav-tabs" id="myTab" role="tablist">
-                <li class="nav-item">
+            <ul class="nav nav-tabs wbdv-topic-pill-list" id="myTab" role="tablist">
+                <li class="nav-item wbdv-topic-pill">
                     <a class="nav-link active" data-toggle="tab" href="#Lesson1" role="tab" aria-controls="home" aria-selected="true">Lesson 1</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item wbdv-topic-pill">
                     <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Lesson 2</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item wbdv-topic-pill">
                     <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Lesson 3</a>
                 </li>
+                <a class="wbdv-topic-add-btn" style="align-self: center" href="#">
+                    <i class="fas fa-plus-square fa-2x wbdv-topic-add-btn"></i>
+                </a>
+
+
             </ul>
-            <div class="tab-content" id="myTabContent">
+            <div class="tab-content" id="myTabContent" style="padding-top: 20px">
                 <div class="tab-pane fade show active" id="Lesson1" role="tabpanel" aria-labelledby="home-tab">
 
-                    <button type="button" class="btn btn-success">Save</button>
+                    <button type="button" class="btn btn-success offset-sm-10">Save</button>
+                    <span>Preview</span>
+                    <a href="#">
                     <i class="fas fa-toggle-on"></i>
+                    </a>
 
                     <div class="card">
-                        <i class="fas fa-arrow-up"></i>
-                        <i class="fas fa-arrow-down"></i>
-                        <i class="fas fa-window-close"></i>
                         <h5 class="card-header">Heading widget</h5>
 
                         <div class="card-body">
-                            <h5 class="card-title">Heading </h5>
-                            <input class="form-control" placeholder="Heading text">
-                            <select class="form control" inlist="Heading text"> <option>Heading text</option> </select>
+
+                            <div class="row">
+                                <div class="col">
+                                    <h5 class="card-title">Heading </h5>
+                                </div>
+                                <div class="col" style="padding-left: 10cm">
+                                    <a href="#">
+                                        <i class="fas fa-arrow-up"></i>
+                                    </a>
+                                    <a href="#">
+                                    <i class="fas fa-arrow-down"></i>
+                                    </a>
+                                    <select class="form control" inlist="Heading text"> <option>Heading text</option> </select>
+                                    <a href="#">
+                                    <i class="fas fa-window-close"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <input class="form-control" placeholder="Heading text" style="margin: 10px;">
+                            <input class="form-control" placeholder="Heading 1" type="number" style="margin: 10px;">
+                            <input class="form-control" placeholder="Widget Name" style="margin: 10px;">
                             <h3>Preview</h3>
                             <h1>Heading text</h1>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
                         </div>
                     </div>
 
@@ -121,15 +184,12 @@
                 <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
             </div>
 
-            <h3>Topics</h3>
 
-            <ul>
-                <li>Topic 1</li>
-                <li>Topic 2</li>
-                <li>Topic 3</li>
-            </ul>
+            <a href="#">
+                <i class="fas fa-plus-square fa-2x" style="float: right; margin-right: 10px; color: crimson; margin-top: 5px"></i>
+            </a>
 
-            <i class="fas fa-plus-square"></i>
+
         </div>
     </div>
 
