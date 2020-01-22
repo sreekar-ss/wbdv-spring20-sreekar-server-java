@@ -7,7 +7,7 @@ h1{
 
     width: 80%;
     text-align: center;
-    margin-left: 2cm;
+
     text-emphasis: none;
     padding-top: 3cm;
     padding-bottom: 1cm;
@@ -26,7 +26,7 @@ h1{
     margin-bottom: 0.5cm;
 
     float: right;
-    white-space: nowrap;
+    white-space: normal;
 }
 
 .wbdv-button{
