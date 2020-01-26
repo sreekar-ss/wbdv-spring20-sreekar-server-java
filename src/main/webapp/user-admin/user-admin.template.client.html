@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WhiteBoard</title>
+    <link href="user-admin.style.client.css" rel="stylesheet"/>
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <script src="https://kit.fontawesome.com/ae9e5ac5b6.js" crossorigin="anonymous"></script>  <!-- font Awesome icon script-->
+
+
+</head>
+<body>
+
+
+<h2>User Admin</h2>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>Username</th>
+        <th>Password</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Role</th>
+        <th>&nbsp;</th>
+    </tr>
+
+    <tr class="wbdv-form">
+        <td> <input class="wbdv-username-input form-control" id="usernameFld" placeholder="Username"/></td>
+        <td> <input class="wddv-password-input form-control" id="passwordFld" type="password" placeholder="Password"/></td>
+        <td> <input class="wbdv-firstname-input form-control" id="firstNameFld" placeholder="First Name"/></td>
+        <td> <input class="wbdv-lastname-input form-control" id="lastNameFld" placeholder="Last Name"/></td>
+        <td>
+            <select class="wbdv-role-input form-control" id="roleFld">
+                <option>Student</option>
+                <option>Faculty</option>
+                <option>Admin</option>
+            </select>
+        </td>
+
+        <td>
+            <span class="float-center">
+            <i class="fas fa-search fa-2x wbdv-search"></i>
+            <i class="fas fa-user-plus fa-2x wbdv-create"></i>
+            <i class="far fa-check-circle fa-2x wbdv-update"></i>
+            </span>
+        </td>
+    </tr>
+
+    </thead>
+
+    <tbody class="wbdv-tbody">
+    <tr class="wbdv-template wbdv-user wbdv-hidden">
+        <td class="wbdv-username">asdnjn</td>
+        <td>&nbsp;</td>
+        <td class="wbdv-first-name">najfdj</td>
+        <td class="wbdv-last-name">Lasnfjn</td>
+        <td class="wbdv-role">FACULTY</td>
+        <td class="wbdv-actions">
+        <span class="float-center">
+          <i id="wbdv-remove" class="fa-2x fa fa-times wbdv-remove"></i>
+          <i id="wbdv-edit" class="fa-2x fa fa-pencil wbdv-edit"></i>
+        </span>
+        </td>
+    </tr>
+    </tbody>
+
+
+
+</table>
+
+</body>
+</html>
