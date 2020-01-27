@@ -1,0 +1,31 @@
+
+.wbdv-search{
+    padding: 4px;
+}
+.wbdv-create{
+    padding: 4px;
+}
+.wbdv-update{
+    padding: 4px;
+}
+.wbdv-remove{
+    padding: 4px;
+}
+.wbdv-edit{
+    padding: 4px;
+}
+
+
+
+.wbdv-username{
+    text-align: center;
+}
+.wbdv-first-name{
+    text-align: center;
+}
+.wbdv-last-name{
+    text-align: center;
+}
+.wbdv-role{
+    text-align: center;
+}
