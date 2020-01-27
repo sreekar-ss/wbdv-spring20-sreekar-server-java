@@ -43,7 +43,9 @@
         <td>
             <span class="float-center">
             <i class="fas fa-search fa-2x wbdv-search"></i>
-            <i class="fas fa-user-plus fa-2x wbdv-create"></i>
+                <button id="createUser" class="wbdv-create wbdv-create-btn">
+                    <i class="fas fa-user-plus fa-2x wbdv-create"></i>
+                </button>
             <i class="far fa-check-circle fa-2x wbdv-update"></i>
             </span>
         </td>
@@ -53,7 +55,10 @@
 
     <tbody class="wbdv-tbody">
     <tr class="wbdv-template wbdv-user wbdv-hidden">
-        <td class="wbdv-username">asdnjn</td>
+        <td class="wbdv-username">
+            <h6 class="wbdv-username d-none d-md-block">asdnjn</h6>
+            <input class="d-none d-lg-block form-control" value="asdfsfd"/>
+        </td>
         <td>&nbsp;</td>
         <td class="wbdv-first-name">najfdj</td>
         <td class="wbdv-last-name">Lasnfjn</td>
@@ -71,5 +76,10 @@
 
 </table>
 
+<script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"></script>
+<script src="user-admin.controller.client.js"></script>
 </body>
 </html>
