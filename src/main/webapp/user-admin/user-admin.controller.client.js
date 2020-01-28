@@ -24,6 +24,8 @@ function main() {
 
     let $users = [
         alice,
+        {username: "xyz",password: "asdmkfs",firstName: "last"},
+        {username: "aasnf", password: "asfkf", firstName: "ksksja"}
     ]
 
 
@@ -31,6 +33,34 @@ function main() {
 
     let $user = $("<tr> <td>test</td> <td>&nbsp</td> </tr>")
     console.log(alice)
+
+    let $userLi = $(`
+    <tr> <td>`+ $users[0].username + `</td> <td> this is test 2 </td> <td> im bored </td> </tr>
+    `)
+
+    const renderUsers = () => {
+        $userList.empty()
+
+        for (let u in $users) {
+            let $user1 = $(
+                `<tr class='wbdv-template wbdv-user wbdv-hidden'>` +
+                `<td class='wbdv-username'>` + $users[u].username + `</td>` +
+                `<td>&nbsp</td> ` +
+                `<td class='wbdv-first-name'>` + $users[u].firstName + `</td>` +
+                `<td class='wbdv-last-name'>` + $users[u].lastName + `</td>` +
+                `<td class='wbdv-role'>` + $users[u].role + `</td>` +
+                `<td class='wbdv-actions'>` +
+                `<span class='float-center'>` +
+                `<i id='wbdv-remove' class='fa-2x fa fa-times wbdv-remove'></i>` +
+                `<i id='wbdv-edit' class='fa-2x fa fa-pencil wbdv-edit'></i>` +
+                `</span>` +
+                `</td>` +
+                `</tr>
+`)
+            $userList.append($user1)
+        }
+    }
+    renderUsers()
 
     $userList.append($user)
 
@@ -55,10 +85,6 @@ function main() {
     let $lastNameFld = $("#lastNameFld")
     let $roleFld = $("#roleFld")
 
-
-    let $createBtn = $("#createUser")
- $createBtn.click(createUser)
-
     const createUser = () => {
 
         const username = $usernameFld.val()
@@ -79,30 +105,11 @@ function main() {
         renderUsers()
     }
 
+    let $createBtn = $("#createUser")
 
-    const renderUsers = () => {
-        $userList.empty()
+    $createBtn.click(createUser)
 
-        for (let u in $users) {
-            let $user = $(`
-        "<tr class='wbdv-template wbdv-user wbdv-hidden'>" +
-        " <td class='wbdv-username'>" + $users[u].username} + "</td> " +
-        "<td>&nbsp</td> " +
-        "<td class='wbdv-first-name'>" + $users[u].firstName + "</td>" +
-        "<td class='wbdv-last-name'>" + $users[u].lastname + "</td>"+
-        "<td class='wbdv-role'>"+ $users[u].role + "</td>" +
-        "<td class='wbdv-actions'> " +
-            "<span class='float-center'>" +
-                " <i id='wbdv-remove' class='fa-2x fa fa-times wbdv-remove'></i>" +
-                " <i id='wbdv-edit' class='fa-2x fa fa-pencil wbdv-edit'></i>" +
-            "</span>" +
-        "</td>" +
-        " </tr>"
-        `)
-
-            $userList.append($user)
-        }
-    }
+    //renderUsers()
 
 
 }
