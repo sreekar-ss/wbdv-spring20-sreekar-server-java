@@ -49,6 +49,21 @@
                  })
 
          }
+
+         function editUser(index) {
+            let user = $users[index]
+             let userId = user._id
+
+            userService.findUserById(userId)
+                .then(actualUser =>{
+                    $usernameFld.val(actualUser.username)
+                    $firstNameFld.val(actualUser.firstName)
+                    $lastNameFld.val(actualUser.lastName)
+                    $roleFld.val(actualUser.role)
+                })
+
+         }
+
          const renderUsers = () => {
              $userList.empty()
 
@@ -63,7 +78,7 @@
                      `<td class='wbdv-actions'>` +
                      `<span class='float-center'>` +
                      `<button class='wbdv-remove' id="wbdv-remove" style="border: none"><i class='fa-2x fa fa-times'></i></button>` +
-                     `<i id='wbdv-edit' class='fa-2x fa fa-pencil wbdv-edit'></i>` +
+                     `<button class="wbdv-edit" style="border: none"> <i id='wbdv-edit' class='fa-2x fa fa-pencil wbdv-edit'></i></button>` +
                      `</span>` +
                      `</td>` +
                      `</tr>
@@ -72,7 +87,8 @@
                  $userList.append($user1)
                  let $removeBtn = $(".wbdv-remove")
                  $removeBtn.click(() => deleteUser(u))
-
+                 let $editBtn = $(".wbdv-edit")
+                 $editBtn.click(() => editUser(u))
 
              }
          }
@@ -106,8 +122,12 @@
                  role: role
              }
 
-             $users.push(newUser)
-             renderUsers()
+             userService.createUser(newUser)
+                 .then(actualUser => {
+                     console.log(actualUser)
+                     $users.push(actualUser)
+                     renderUsers()
+                 })
          }
 
          let $createBtn = $("#createUser")
