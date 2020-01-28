@@ -9,14 +9,18 @@
 
     <script src="https://kit.fontawesome.com/ae9e5ac5b6.js" crossorigin="anonymous"></script>  <!-- font Awesome icon script-->
 
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+            crossorigin="anonymous"></script>
+    <script src="user-admin.controller.client.js"></script>
 
 </head>
 <body>
 
 
-<h2>User Admin</h2>
+<h2 id="mainTitle">User Admin</h2>
 
-<table class="table">
+<table class="table" id="#table">
     <thead>
     <tr>
         <th>Username</th>
@@ -53,11 +57,11 @@
 
     </thead>
 
-    <tbody class="wbdv-tbody">
+    <tbody class="wbdv-tbody" id="userList">
     <tr class="wbdv-template wbdv-user wbdv-hidden">
         <td class="wbdv-username">
             <h6 class="wbdv-username d-none d-md-block">asdnjn</h6>
-            <input class="d-none d-lg-block form-control" value="asdfsfd"/>
+           <!-- <input class="d-none d-lg-block form-control" value="asdfsfd"/> -->
         </td>
         <td>&nbsp;</td>
         <td class="wbdv-first-name">najfdj</td>
@@ -76,10 +80,8 @@
 
 </table>
 
-<script
-        src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-        crossorigin="anonymous"></script>
-<script src="user-admin.controller.client.js"></script>
+
+
+
 </body>
 </html>
