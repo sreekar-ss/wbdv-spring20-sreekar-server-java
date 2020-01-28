@@ -24,20 +24,17 @@ function main() {
 
     let $users = [
         alice,
-        {username: "xyz",password: "asdmkfs",firstName: "last"},
-        {username: "aasnf", password: "asfkf", firstName: "ksksja"}
+        {username: "xyz",password: "asdmkfs",firstName: "last", lastName: "lastname" , role:FACULTY},
+        {username: "aasnf", password: "asfkf", firstName: "ksksja", lastName:"asfddf", role: FACULTY}
     ]
 
 
     let $userList = $("#userList")
 
-    let $user = $("<tr> <td>test</td> <td>&nbsp</td> </tr>")
-    console.log(alice)
-
-    let $userLi = $(`
-    <tr> <td>`+ $users[0].username + `</td> <td> this is test 2 </td> <td> im bored </td> </tr>
-    `)
-
+const deleteUser = (index) => {
+    $users.splice(index , deleteCount=1)
+   renderUsers()
+    }
     const renderUsers = () => {
         $userList.empty()
 
@@ -51,32 +48,20 @@ function main() {
                 `<td class='wbdv-role'>` + $users[u].role + `</td>` +
                 `<td class='wbdv-actions'>` +
                 `<span class='float-center'>` +
-                `<i id='wbdv-remove' class='fa-2x fa fa-times wbdv-remove'></i>` +
+                `<button class='wbdv-remove' style="border: none"><i class='fa-2x fa fa-times'></i></button>` +
                 `<i id='wbdv-edit' class='fa-2x fa fa-pencil wbdv-edit'></i>` +
                 `</span>` +
                 `</td>` +
                 `</tr>
 `)
             $userList.append($user1)
+            let $removeBtn = $(".wbdv-remove")
+            $removeBtn.click( () => deleteUser(u) )
         }
     }
     renderUsers()
 
-    $userList.append($user)
 
-    $userList.append("<tr class='wbdv-template wbdv-user wbdv-hidden'>" +
-        " <td class='wbdv-username'>"+$users[0].username + "</td> " +
-        "<td> FO </td> " +
-        "<td class='wbdv-first-name'>najfdj</td>" +
-        "<td class='wbdv-last-name'>last name</td>"+
-        "<td class='wbdv-role'>Student</td>" +
-        "<td class='wbdv-actions'> " +
-            "<span class='float-center'>" +
-                " <i id='wbdv-remove' class='fa-2x fa fa-times wbdv-remove'></i>" +
-                " <i id='wbdv-edit' class='fa-2x fa fa-pencil wbdv-edit'></i>" +
-            "</span>" +
-        "</td>" +
-        " </tr>")
 
 
     let $usernameFld = $("#usernameFld")
@@ -88,10 +73,15 @@ function main() {
     const createUser = () => {
 
         const username = $usernameFld.val()
+        $usernameFld.val("")
         const password = $passwordFld.val()
+        $passwordFld.val("")
         const fistName = $firstNameFld.val()
+        $firstNameFld.val("")
         const lastName = $lastNameFld.val()
+        $lastNameFld.val("")
         const role = $roleFld.val()
+        $roleFld.val("")
 
         const newUser = {
             username: username,
@@ -106,7 +96,6 @@ function main() {
     }
 
     let $createBtn = $("#createUser")
-
     $createBtn.click(createUser)
 
     //renderUsers()
