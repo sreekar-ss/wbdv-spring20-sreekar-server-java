@@ -36,7 +36,7 @@
          ]
 
 
-         let $userList = $("#userList")
+         let $tbody = $("#userList")
 
          const deleteUser = (index) => {
              let user = $users[index]
@@ -50,7 +50,9 @@
 
          }
 
+         let currentUserIndex = -1
          function editUser(index) {
+             currentUserIndex = index
             let user = $users[index]
              let userId = user._id
 
@@ -64,11 +66,33 @@
 
          }
 
+         const updateUser = () => {
+             const updatedUser = {
+                 username: $usernameFld.val(),
+                 password: $passwordFld.val(),
+                 firstName: $firstNameFld.val(),
+                 lastName: $lastNameFld.val(),
+                 role: $roleFld.val()
+             }
+             $usernameFld.val("")
+             $passwordFld.val("")
+             $firstNameFld.val("")
+             $lastNameFld.val("")
+             $roleFld.val("")
+             updatedUser._id = $users[currentUserIndex]._id
+             userService.updateUser(updatedUser._id, updatedUser)
+                 .then(actualUser => {
+                     console.log(actualUser)
+                     //$users.push(actualUser)
+                     //renderUsers()
+                     findAllUsers()
+                 })
+         }
          const renderUsers = () => {
-             $userList.empty()
+             $tbody.empty()
 
              for (let u in $users) {
-                 let $user1 = $(
+                 let $userRowTemplate = $(
                      `<tr class='wbdv-template wbdv-user wbdv-hidden'>` +
                      `<td class='wbdv-username'>` + $users[u].username + `</td>` +
                      `<td>&nbsp</td> ` +
@@ -84,7 +108,7 @@
                      `</tr>
 `)
 
-                 $userList.append($user1)
+                 $tbody.append($userRowTemplate)
                  let $removeBtn = $(".wbdv-remove")
                  $removeBtn.click(() => deleteUser(u))
                  let $editBtn = $(".wbdv-edit")
@@ -133,16 +157,25 @@
          let $createBtn = $("#createUser")
          $createBtn.click(createUser)
 
+         let $updateBtn = $("#updateUser")
+         $updateBtn.click(updateUser)
+
          //renderUsers()
+            function findAllUsers() {
+                 userService
+                     .findAllUsers()
+                    .then(
+                        thusers => {
+                        $users = thusers
+                        renderUsers()
+                    })
+    }
 
-         userService
-             .findAllUsers().then(
-                 thusers => {
-                     $users = thusers
-                     renderUsers()
-                 })
+    findAllUsers()
 
-     }
+  }
+
+
 
      $(main)
 
