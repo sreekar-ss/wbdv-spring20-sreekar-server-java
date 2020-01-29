@@ -33,6 +33,7 @@
          }
 
          let currentUserIndex = -1
+
          function findUserById(index) {
              currentUserIndex = index
             let user = $users[index]
@@ -75,6 +76,9 @@
              $tbody.empty()
 
              for (let u in $users) {
+                 const testId = "wbdv-remove".concat(u)
+                 const editId = "wbdv-edit".concat(u)
+
                  let $userRowTemplate = $(
                      `<tr class='wbdv-template wbdv-user wbdv-hidden'>` +
                      `<td class='wbdv-username'>` + $users[u].username + `</td>` +
@@ -83,49 +87,31 @@
                      `<td class='wbdv-last-name'>` + $users[u].lastName + `</td>` +
                      `<td class='wbdv-role'>` + $users[u].role + `</td>` +
                      `<td class='wbdv-actions'>` +
-                     `<span class='float-center'>` +
-                     `<button class='wbdv-remove' id="wbdv-remove" style="border: none"><i class='fa-2x fa fa-times'></i></button>` +
-                     `<button class="wbdv-edit" style="border: none"> <i id='wbdv-edit' class='fa-2x fa fa-pencil wbdv-edit'></i></button>` +
+                     `<span class='float-center' style="white-space: nowrap">` +
+                     `<button class='wbdv-remove' id="${testId}" style="border: none"><i class='fa-2x fa fa-times'></i></button>` +
+                     `<button class="wbdv-edit" id="${editId}" style="border: none"> <i id='wbdv-edit' class='fa-2x fa fa-pencil wbdv-edit'></i></button>` +
                      `</span>` +
                      `</td>` +
-                     `</tr>
-`)
+                     `</tr>`)
+
 
                  $tbody.append($userRowTemplate)
-                 let $removeBtn = $(".wbdv-remove")
-                 $removeBtn.click(() => deleteUser(0))
-                 let $editBtn = $(".wbdv-edit")
-                 $editBtn.click(() => findUserbyId(0))
+                // $("button").click(function() {
+                //     alert(this.id); // or alert($(this).attr('id'));
+                // });
+
+                 console.log(testId)
+                 let $removeBtn = $("#"+testId)
+                 //console.log($removeBtn)
+                 $removeBtn.click(() => deleteUser(u))
+                 let $editBtn = $("#"+editId)
+                 $editBtn.click(() => findUserById(u))
 
              }
          }
          renderUsers()
 
 
-         const renderUser = (user) => {
-             $tbody.empty()
-             let $userRowTemplate = $(
-                 `<tr class='wbdv-template wbdv-user wbdv-hidden'>` +
-                 `<td class='wbdv-username'>` + user.username + `</td>` +
-                 `<td>&nbsp</td> ` +
-                 `<td class='wbdv-first-name'>` + user.firstName + `</td>` +
-                 `<td class='wbdv-last-name'>` + user.lastName + `</td>` +
-                 `<td class='wbdv-role'>` + user.role + `</td>` +
-                 `<td class='wbdv-actions'>` +
-                 `<span class='float-center'>` +
-                 `<button class='wbdv-remove' id="wbdv-remove" style="border: none"><i class='fa-2x fa fa-times'></i></button>` +
-                 `<button class="wbdv-edit" style="border: none"> <i id='wbdv-edit' class='fa-2x fa fa-pencil wbdv-edit'></i></button>` +
-                 `</span>` +
-                 `</td>` +
-                 `</tr>
-`)
-             $tbody.append($userRowTemplate)
-             let $removeBtn = $(".wbdv-remove")
-             $removeBtn.click(() => deleteUser(user))
-             let $editBtn = $(".wbdv-edit")
-             $editBtn.click(() => findUserbyId(user))
-
-         }
 
          const createUser = () => {
 
@@ -156,7 +142,33 @@
                  })
          }
 
+         const renderUser = (user) => {
+             $tbody.empty()
+             const singleUserId = "wbdv-remove".concat(0)
+             const singleusereditId = "wbdv-edit".concat(0)
 
+             let $userRowTemplate = $(
+                 `<tr class='wbdv-template wbdv-user wbdv-hidden'>` +
+                 `<td class='wbdv-username'>` + user.username + `</td>` +
+                 `<td>&nbsp</td> ` +
+                 `<td class='wbdv-first-name'>` + user.firstName + `</td>` +
+                 `<td class='wbdv-last-name'>` + user.lastName + `</td>` +
+                 `<td class='wbdv-role'>` + user.role + `</td>` +
+                 `<td class='wbdv-actions'>` +
+                 `<span class='float-center'>` +
+                 `<button class='wbdv-remove' id="${testId}" style="border: none"><i class='fa-2x fa fa-times'></i></button>` +
+                 `<button class="wbdv-edit" id="${singleusereditId}" style="border: none"> <i id='wbdv-edit' class='fa-2x fa fa-pencil wbdv-edit'></i></button>` +
+                 `</span>` +
+                 `</td>` +
+                 `</tr>
+`)
+             $tbody.append($userRowTemplate)
+             let $removeBtn = $("#"+singleUserId)
+             $removeBtn.click(() => deleteUser(0))
+             let $editBtn = $("#"+singleusereditId)
+             $editBtn.click(() => findUserById(0))
+
+         }
 
          function findAllUsers() {
              userService
