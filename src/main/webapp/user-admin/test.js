@@ -58,5 +58,33 @@ const STUDENT = "STUDENT";
 }
 
 
+let username = "alice"
+let password = "12324355"
+let firstName = "Alice"
+let lastName = "lastName"
+
+const FACULTY = "FACULTY"
+const STUDENT = "STUDENT"
+const ADMIN = "ADMIN"
+
+let role = STUDENT
+
+
+let alice = {
+    username: username,
+    password: password,
+    firstName: "firstName",
+    lastName: "lastName",
+    role: STUDENT,
+
+}
+
+let $users = [
+    alice,
+    {username: "xyz", password: "asdmkfs", firstName: "last", lastName: "lastname", role: FACULTY},
+    {username: "aasnf", password: "asfkf", firstName: "ksksja", lastName: "asfddf", role: FACULTY}
+]
+
+
 
 

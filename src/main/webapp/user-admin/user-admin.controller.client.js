@@ -7,36 +7,18 @@
 
      function main() {
 
+         let $users = []
 
-         let username = "alice"
-         let password = "12324355"
-         let firstName = "Alice"
-         let lastName = "lastName"
-
-         const FACULTY = "FACULTY"
-         const STUDENT = "STUDENT"
-         const ADMIN = "ADMIN"
-
-         let role = STUDENT
-
-
-         let alice = {
-             username: username,
-             password: password,
-             firstName: "firstName",
-             lastName: "lastName",
-             role: STUDENT,
-
-         }
-
-         let $users = [
-             alice,
-             {username: "xyz", password: "asdmkfs", firstName: "last", lastName: "lastname", role: FACULTY},
-             {username: "aasnf", password: "asfkf", firstName: "ksksja", lastName: "asfddf", role: FACULTY}
-         ]
-
+         let $usernameFld = $("#usernameFld")
+         let $passwordFld = $("#passwordFld")
+         let $firstNameFld = $("#firstNameFld")
+         let $lastNameFld = $("#lastNameFld")
+         let $roleFld = $("#roleFld")
 
          let $tbody = $("#userList")
+
+         let $createBtn = $("#createUser")
+         let $updateBtn = $("#updateUser")
 
          const deleteUser = (index) => {
              let user = $users[index]
@@ -51,7 +33,7 @@
          }
 
          let currentUserIndex = -1
-         function editUser(index) {
+         function findUserById(index) {
              currentUserIndex = index
             let user = $users[index]
              let userId = user._id
@@ -88,6 +70,7 @@
                      findAllUsers()
                  })
          }
+
          const renderUsers = () => {
              $tbody.empty()
 
@@ -110,20 +93,39 @@
 
                  $tbody.append($userRowTemplate)
                  let $removeBtn = $(".wbdv-remove")
-                 $removeBtn.click(() => deleteUser(u))
+                 $removeBtn.click(() => deleteUser(0))
                  let $editBtn = $(".wbdv-edit")
-                 $editBtn.click(() => editUser(u))
+                 $editBtn.click(() => findUserbyId(0))
 
              }
          }
          renderUsers()
 
 
-         let $usernameFld = $("#usernameFld")
-         let $passwordFld = $("#passwordFld")
-         let $firstNameFld = $("#firstNameFld")
-         let $lastNameFld = $("#lastNameFld")
-         let $roleFld = $("#roleFld")
+         const renderUser = (user) => {
+             $tbody.empty()
+             let $userRowTemplate = $(
+                 `<tr class='wbdv-template wbdv-user wbdv-hidden'>` +
+                 `<td class='wbdv-username'>` + user.username + `</td>` +
+                 `<td>&nbsp</td> ` +
+                 `<td class='wbdv-first-name'>` + user.firstName + `</td>` +
+                 `<td class='wbdv-last-name'>` + user.lastName + `</td>` +
+                 `<td class='wbdv-role'>` + user.role + `</td>` +
+                 `<td class='wbdv-actions'>` +
+                 `<span class='float-center'>` +
+                 `<button class='wbdv-remove' id="wbdv-remove" style="border: none"><i class='fa-2x fa fa-times'></i></button>` +
+                 `<button class="wbdv-edit" style="border: none"> <i id='wbdv-edit' class='fa-2x fa fa-pencil wbdv-edit'></i></button>` +
+                 `</span>` +
+                 `</td>` +
+                 `</tr>
+`)
+             $tbody.append($userRowTemplate)
+             let $removeBtn = $(".wbdv-remove")
+             $removeBtn.click(() => deleteUser(user))
+             let $editBtn = $(".wbdv-edit")
+             $editBtn.click(() => findUserbyId(user))
+
+         }
 
          const createUser = () => {
 
@@ -154,24 +156,23 @@
                  })
          }
 
-         let $createBtn = $("#createUser")
+
+
+         function findAllUsers() {
+             userService
+                 .findAllUsers()
+                 .then(
+                     thusers => {
+                         $users = thusers
+                         renderUsers()
+                     })
+         }
+
+         findAllUsers()
+
+
          $createBtn.click(createUser)
-
-         let $updateBtn = $("#updateUser")
          $updateBtn.click(updateUser)
-
-         //renderUsers()
-            function findAllUsers() {
-                 userService
-                     .findAllUsers()
-                    .then(
-                        thusers => {
-                        $users = thusers
-                        renderUsers()
-                    })
-    }
-
-    findAllUsers()
 
   }
 
