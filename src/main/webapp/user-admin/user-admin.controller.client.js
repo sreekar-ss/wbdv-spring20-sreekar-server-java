@@ -27,7 +27,7 @@
              userService.deleteUser(userId)
                  .then(response => {
                      $users.splice(index, 1)
-                     renderUsers()
+                     findAllUsers()
                  })
 
          }
@@ -173,6 +173,8 @@
 
          $createBtn.click(createUser)
          $updateBtn.click(updateUser)
+
+
 
   }
 
