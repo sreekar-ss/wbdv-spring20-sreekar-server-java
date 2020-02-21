@@ -16,6 +16,10 @@ public class WidgetService {
         Widget w2 = new Widget("234", "Widget B");
         Widget w3 = new Widget("345", "Widget C");
 
+        w1.setTopicId("111");w1.setType("PARAGRAPH");
+        w2.setTopicId("111");w2.setType("HEADING");
+        w3.setTopicId("111");w2.setType("PARAGRAPH");
+
         widgetList.add(w1);
         widgetList.add(w2);
         widgetList.add(w3);
@@ -36,11 +40,23 @@ public class WidgetService {
     }
 
 
-    public void deleteWidget(String wid){
+    public int deleteWidget(String wid){
         widgetList = widgetList
                 .stream()
                 .filter(w -> !w.getId().equals(wid))
                 .collect(Collectors.toList());
+        return 1;
+    }
+
+
+    public List<Widget> findWidgetsForTopic(String topicId) {
+        List<Widget> results = new ArrayList<Widget>();
+        for(Widget w: widgetList){
+            if (w.getTopicId().equals(topicId)){
+                results.add(w);
+            }
+        }
+        return results;
     }
 
     public List<Widget> findAllWidgets() {
