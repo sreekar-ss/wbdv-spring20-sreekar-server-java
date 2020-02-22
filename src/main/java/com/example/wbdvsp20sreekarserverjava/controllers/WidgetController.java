@@ -1,10 +1,9 @@
-package com.example.wbdvsp20sreekarserverjava.controllers;
+package test.com.example.wbdvsp20sreekarserverjava.wbdvsp20sreekarserverjava.controllers;
 
-import com.example.wbdvsp20sreekarserverjava.models.Widget;
-import com.example.wbdvsp20sreekarserverjava.services.WidgetService;
+import test.com.example.wbdvsp20sreekarserverjava.wbdvsp20sreekarserverjava.models.Widget;
+import test.com.example.wbdvsp20sreekarserverjava.wbdvsp20sreekarserverjava.services.WidgetService;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
