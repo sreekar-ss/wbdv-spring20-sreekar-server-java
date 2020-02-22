@@ -5,8 +5,17 @@ public class Widget {
     private String id;
     private String title= "New Widget";
     private String topicId;
-    private String type= "HEADING";
+    private String type;
     private int size = 2;
+    private int index;
+
+    public int getIndex() {
+        return index;
+    }
+
+    public void setIndex(int index) {
+        this.index = index;
+    }
 
     public String getType() {
         return type;

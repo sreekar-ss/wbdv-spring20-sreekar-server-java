@@ -47,6 +47,20 @@ public class WidgetController {
         return service.createWidget(widget);
     }
 
+    @PostMapping("/api/topics/{topicid}/widgets/{widgetid}/up")
+    public List<Widget> positionUp(@PathVariable("topicid") String topicId, @PathVariable("widgetid") String widgetId) {
+        return service.positionUp(topicId, widgetId);
+    }
+
+    @PostMapping("/api/topics/{topicId}/widgets/{widgetid}/down")
+    public List<Widget> positionDown(@PathVariable("topicId") String topicId, @PathVariable("widgetid") String widgetId) {
+        return service.decreaseOrder(topicId,widgetId);
+    }
+
+    @PutMapping("/api/widgets/{widgetid}")
+    public Widget updateWidget(@PathVariable("widgetid") String widgetId, @RequestBody Widget widget) {
+        return service.updateWidget(widgetId, widget);
+    }
 
     @GetMapping("/hello")
     public String sayHello() {
