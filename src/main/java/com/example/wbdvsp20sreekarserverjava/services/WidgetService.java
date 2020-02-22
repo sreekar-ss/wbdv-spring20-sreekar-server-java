@@ -1,6 +1,6 @@
-package test.com.example.wbdvsp20sreekarserverjava.wbdvsp20sreekarserverjava.services;
+package com.example.wbdvsp20sreekarserverjava.services;
 
-import test.com.example.wbdvsp20sreekarserverjava.wbdvsp20sreekarserverjava.models.Widget;
+import com.example.wbdvsp20sreekarserverjava.models.Widget;
 
 
 import java.util.ArrayList;

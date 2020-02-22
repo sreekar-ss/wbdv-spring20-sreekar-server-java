@@ -1,4 +1,4 @@
-package test.com.example.wbdvsp20sreekarserverjava.wbdvsp20sreekarserverjava.models;
+package com.example.wbdvsp20sreekarserverjava.models;
 
 public class Widget {
 
