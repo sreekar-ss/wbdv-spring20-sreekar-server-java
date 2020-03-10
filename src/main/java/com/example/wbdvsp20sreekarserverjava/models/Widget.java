@@ -1,21 +1,25 @@
 package com.example.wbdvsp20sreekarserverjava.models;
 
+
+import javax.persistence.*;
+
+@Entity
+@Table(name = "widgets")
 public class Widget {
 
-    private String id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
     private String title= "New Widget";
     private String topicId;
     private String type;
     private int size = 2;
-    private int index;
+    private int indexorder = -1;
 
-    public int getIndex() {
-        return index;
-    }
+    public int getIndex() { return indexorder; }
 
-    public void setIndex(int index) {
-        this.index = index;
-    }
+    public void setIndex(int indexorder) { this.indexorder = indexorder; }
 
     public String getType() {
         return type;
@@ -44,16 +48,16 @@ public class Widget {
     public Widget() {
     }
 
-    public Widget(String id, String title) {
+    public Widget(Integer id, String title) {
         this.id = id;
         this.title = title;
     }
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

@@ -2,6 +2,7 @@ package com.example.wbdvsp20sreekarserverjava.controllers;
 
 import com.example.wbdvsp20sreekarserverjava.models.Widget;
 import com.example.wbdvsp20sreekarserverjava.services.WidgetService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -10,7 +11,8 @@ import java.util.List;
 @CrossOrigin(origins = "*")
 public class WidgetController {
 
-    WidgetService service = new WidgetService();
+    @Autowired
+    WidgetService service;
 
     @GetMapping("/api/widgets")
     public List<Widget> findAllWidgets() {
@@ -26,13 +28,6 @@ public class WidgetController {
     @GetMapping("/api/topics/{topicid}/widgets")
     public List<Widget> findWidgetsForTopic(@PathVariable("topicid") String topicId) {
         return service.findWidgetsForTopic(topicId);
-    }
-
-
-    @GetMapping("/api/widget")
-    public Widget getWidget() {
-        Widget w1 = new Widget("123", "Widget A");
-        return w1;
     }
 
     @DeleteMapping("/api/widgets/{widgetId}")
@@ -65,5 +60,11 @@ public class WidgetController {
     public String sayHello() {
         return "Hello!";
     }
+
+//    @GetMapping("/api/widget")
+//    public Widget getWidget() {
+//        Widget w1 = new Widget("123", "Widget A");
+//        return w1;
+//    }
 
 }
