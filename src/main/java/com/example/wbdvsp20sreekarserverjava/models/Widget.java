@@ -51,6 +51,15 @@ public class Widget {
 //        this.topicId = topicId;
 //    }
 
+    public void setTopicId(Integer topicId) {
+        this.topic = new Topic();
+        this.topic.setId(topicId);
+    }
+
+    public int getTopicId() {
+        return this.topic.getId();
+    }
+
     public Widget() {
     }
 

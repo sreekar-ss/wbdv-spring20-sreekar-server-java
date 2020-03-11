@@ -11,6 +11,15 @@ public class Topic {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String title;
+    private Integer lessonId;
+
+    public Integer getLessonId() {
+        return lessonId;
+    }
+
+    public void setLessonId(Integer lessonId) {
+        this.lessonId = lessonId;
+    }
 
     @OneToMany(mappedBy = "topic")
     private List<Widget> widgets;

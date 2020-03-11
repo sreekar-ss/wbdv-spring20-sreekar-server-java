@@ -17,4 +17,26 @@ public class TopicService {
     public List<Topic> findAllTopics(){
         return (List<Topic>) topicRepository.findAll();
     }
+
+    public Topic findTopicById(Integer tid) {
+
+        return topicRepository.findById(tid).get();
+    }
+
+    public List<Topic> findTopicsForLesson(Integer lessonId) {
+        return topicRepository.findTopicsForLesson(lessonId);
+    }
+
+    public int deleteTopic(Integer tid){
+        topicRepository.deleteById(tid);
+        return 1;
+    }
+
+    public Topic createTopic (Topic topic){
+        return topicRepository.save(topic);
+    }
+
+    public Topic updateTopic(Topic topic){
+        return topicRepository.save(topic);
+    }
 }
