@@ -37,7 +37,7 @@ public class WidgetController {
 
     @PostMapping("/api/topics/{topicid}/widgets")
     public Widget createWidget(@PathVariable("topicid") String topicId, @RequestBody Widget widget) {
-        widget.setTopicId(topicId);
+//        widget.setTopicId(topicId);
         return service.createWidget(widget);
     }
 

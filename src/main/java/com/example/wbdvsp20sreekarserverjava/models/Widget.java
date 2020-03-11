@@ -1,6 +1,8 @@
 package com.example.wbdvsp20sreekarserverjava.models;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity
@@ -12,10 +14,14 @@ public class Widget {
     private Integer id;
 
     private String title= "New Widget";
-    private String topicId;
+//    private String topicId;
     private String type;
     private int size = 2;
     private int indexorder = -1;
+
+    @ManyToOne
+    @JsonIgnore
+    private Topic topic;
 
     public int getIndex() { return indexorder; }
 
@@ -37,13 +43,13 @@ public class Widget {
         this.size = size;
     }
 
-    public String getTopicId() {
-        return topicId;
-    }
-
-    public void setTopicId(String topicId) {
-        this.topicId = topicId;
-    }
+//    public String getTopicId() {
+//        return topicId;
+//    }
+//
+//    public void setTopicId(String topicId) {
+//        this.topicId = topicId;
+//    }
 
     public Widget() {
     }
