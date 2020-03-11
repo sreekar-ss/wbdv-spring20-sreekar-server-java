@@ -6,10 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class WidgetService {
@@ -38,29 +35,29 @@ public class WidgetService {
 //
 //    }
 
-    public Widget findWidgetById(String wid) {
+//    public Widget findWidgetById(String wid) {
 //        for(Widget widget : widgetList){
 //            if(widget.getId().equals(wid)){
 //                return widget;
 //            }
 //        }
-        return null;
-    }
+//        return null;
+//    }
 
-    public Widget createWidget(Widget widget) {
+//    public Widget createWidget(Widget widget) {
 //        widgetList.add(widget);
         //widget.setIndex(widgetList.indexOf(widget));
-        return null;
-    }
+//        return null;
+//    }
 
 
-    public int deleteWidget(String wid){
+//    public int deleteWidget(String wid){
 //        widgetList = widgetList
 //                .stream()
 //                .filter(w -> !w.getId().equals(wid))
 //                .collect(Collectors.toList());
-        return 1;
-    }
+//        return 1;
+//    }
 
     public Widget updateWidget(String wid, Widget widget) {
 //        widgetList = widgetList
@@ -128,15 +125,15 @@ public class WidgetService {
 //        return 1;
 //    }
 
-    public List<Widget> findWidgetsForTopic(String topicId) {
+//    public List<Widget> findWidgetsForTopic(String topicId) {
 //        List<Widget> results = new ArrayList<Widget>();
 //        for(Widget w: widgetList){
 //            if (w.getTopicId().equals(topicId)){
 //                results.add(w);
 //            }
 //        }
-        return null;
-    }
+//        return null;
+//    }
 
 
 
@@ -148,6 +145,24 @@ public class WidgetService {
         return (List<Widget>) widgetRepository.findAll();
     }
 
+    public Widget findWidgetById(Integer wid) {
+
+        return widgetRepository.findById(wid).get();
+    }
+
+    public List<Widget> findWidgetsForTopic(Integer topicId) {
+        return widgetRepository.findWidgetsForTopic(topicId);
+    }
+
+    public int deleteWidget(Integer wid){
+        widgetRepository.deleteById(wid);
+        return 1;
+    }
+
+    public Widget createWidget(Widget widget) {
+
+        return widgetRepository.save(widget);
+    }
 
 
 }
