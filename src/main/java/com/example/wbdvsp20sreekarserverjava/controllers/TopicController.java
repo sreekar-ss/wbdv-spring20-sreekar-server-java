@@ -5,6 +5,7 @@ import com.example.wbdvsp20sreekarserverjava.services.TopicService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -20,13 +21,27 @@ public class TopicController {
     }
 
     @GetMapping("/api/topics/{topicId}")
-    public Topic findTopicById(@PathVariable("topicId") Integer topicId){
-        return topicService.findTopicById(topicId);
+    public Topic findTopicById(@PathVariable("topicId") String topicId){
+        if(topicId.equals("undefined")){
+        //Keep a check here
+            return null;
+        }
+        else {
+            Integer tid = Integer.parseInt(topicId);
+            return topicService.findTopicById(tid);
+        }
     }
 
     @GetMapping("/api/lessons/{lessonId}/topics")
-    public List<Topic> findTopicsForLesson(@PathVariable("lessonId") Integer lid){
-        return topicService.findTopicsForLesson(lid);
+    public List<Topic> findTopicsForLesson(@PathVariable("lessonId") String lessonId){
+//        if(lessonId.equals("undefined")){
+//            List<Topic> dummyList = new ArrayList<>();
+//            return dummyList;
+//        }
+//        else{
+//            Integer lid = Integer.parseInt(lessonId);
+            return topicService.findTopicsForLesson(lessonId);
+
     }
 
     @DeleteMapping("/api/topics/{topicId}")
@@ -35,7 +50,7 @@ public class TopicController {
     }
 
     @PostMapping("/api/lessons/{lessonId}/topics")
-    public Topic createTopic(@PathVariable("lessonId") Integer lid, @RequestBody Topic topic){
+    public Topic createTopic(@PathVariable("lessonId") String lid, @RequestBody Topic topic){
         topic.setLessonId(lid);
         return topicService.createTopic(topic);
     }

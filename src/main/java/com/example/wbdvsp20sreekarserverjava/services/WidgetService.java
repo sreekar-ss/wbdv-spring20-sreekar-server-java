@@ -59,14 +59,14 @@ public class WidgetService {
 //        return 1;
 //    }
 
-    public Widget updateWidget(String wid, Widget widget) {
+//    public Widget updateWidget(String wid, Widget widget) {
 //        widgetList = widgetList
 //                .stream()
 //                .filter(w -> !w.getId().equals(wid))
 //                .collect(Collectors.toList());
 //        widgetList.add(widget);
-        return null;
-    }
+//        return null;
+//    }
 
     public List<Widget> positionUp(String topicId, String widgetId) {
 //
@@ -164,5 +164,8 @@ public class WidgetService {
         return widgetRepository.save(widget);
     }
 
+    public Widget updateWidget(Widget widget) {
+        return widgetRepository.save(widget);
+    }
 
 }

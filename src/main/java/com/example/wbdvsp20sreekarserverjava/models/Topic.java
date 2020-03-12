@@ -11,13 +11,13 @@ public class Topic {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String title;
-    private Integer lessonId;
+    private String lessonId;
 
-    public Integer getLessonId() {
+    public String getLessonId() {
         return lessonId;
     }
 
-    public void setLessonId(Integer lessonId) {
+    public void setLessonId(String lessonId) {
         this.lessonId = lessonId;
     }
 

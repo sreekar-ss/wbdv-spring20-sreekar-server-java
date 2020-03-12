@@ -11,5 +11,5 @@ public interface TopicRepository extends CrudRepository<Topic, Integer> {
 
     // SELECT * FROM topics WHERE lesson_id = lid
     @Query(value = "SELECT * FROM topics WHERE lesson_id = :lid", nativeQuery = true)
-    public List<Topic> findTopicsForLesson(@Param("lid")Integer lessonId);
+    public List<Topic> findTopicsForLesson(@Param("lid")String lessonId);
 }

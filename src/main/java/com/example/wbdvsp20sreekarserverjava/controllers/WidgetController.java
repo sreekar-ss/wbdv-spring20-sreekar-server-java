@@ -5,6 +5,7 @@ import com.example.wbdvsp20sreekarserverjava.services.WidgetService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -26,8 +27,15 @@ public class WidgetController {
     }
 
     @GetMapping("/api/topics/{topicid}/widgets")
-    public List<Widget> findWidgetsForTopic(@PathVariable("topicid") Integer topicId) {
-        return service.findWidgetsForTopic(topicId);
+    public List<Widget> findWidgetsForTopic(@PathVariable("topicid") String topicId) {
+        if(topicId.equals("undefined")){
+            List<Widget> dummyList = new ArrayList<>();
+            return  dummyList;
+        }
+        else{
+            Integer tid = Integer.parseInt(topicId);
+            return service.findWidgetsForTopic(tid);
+        }
     }
 
     @DeleteMapping("/api/widgets/{widgetId}")
@@ -53,7 +61,7 @@ public class WidgetController {
 
     @PutMapping("/api/widgets/{widgetid}")
     public Widget updateWidget(@PathVariable("widgetid") String widgetId, @RequestBody Widget widget) {
-        return service.updateWidget(widgetId, widget);
+        return service.updateWidget(widget);
     }
 
     @GetMapping("/hello")

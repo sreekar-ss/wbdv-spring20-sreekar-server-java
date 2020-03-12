@@ -23,7 +23,7 @@ public class TopicService {
         return topicRepository.findById(tid).get();
     }
 
-    public List<Topic> findTopicsForLesson(Integer lessonId) {
+    public List<Topic> findTopicsForLesson(String lessonId) {
         return topicRepository.findTopicsForLesson(lessonId);
     }
 
