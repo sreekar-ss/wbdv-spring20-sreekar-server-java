@@ -18,6 +18,9 @@ public class Widget {
     private String type;
     private int size = 2;
     private int indexorder = -1;
+    private String listType;
+
+
 
     @ManyToOne
     @JsonIgnore
@@ -83,4 +86,8 @@ public class Widget {
     public void setTitle(String title) {
         this.title = title;
     }
+
+    public String getListType() { return listType; }
+
+    public void setListType(String listType) { this.listType = listType; }
 }
