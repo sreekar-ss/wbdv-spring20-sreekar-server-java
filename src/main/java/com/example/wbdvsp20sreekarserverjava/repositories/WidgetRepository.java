@@ -10,7 +10,7 @@ import java.util.List;
 public interface WidgetRepository extends CrudRepository<Widget, Integer> {
 
     // SELECT * FROM widgets WHERE topic_id = tid
-    @Query(value = "SELECT * FROM widgets WHERE topic_id = :tid", nativeQuery = true)
+    @Query(value = "SELECT * FROM widgets WHERE topic_id = :tid ORDER BY indexorder", nativeQuery = true)
     public List<Widget> findWidgetsForTopic (@Param("tid") Integer topicId);
 
 
